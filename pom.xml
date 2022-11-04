@@ -55,6 +55,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>spring-aws-02</finalName>
 	</build>
 	<repositories>
 		<repository>
