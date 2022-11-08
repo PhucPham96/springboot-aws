@@ -39,7 +39,7 @@ pipeline {
         }
         stage("Deloy") {
             steps {
-                sh 'docker run -itd -p 9111:9110 phucpham9xx/spring-aws-02-0'
+                sh 'docker run -itd -p 9111:9110 phucpham9xx/spring-aws-02'
             }
         }
         stage('Archving') { 
