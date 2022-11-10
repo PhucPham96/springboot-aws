@@ -22,7 +22,7 @@ pipeline {
         stage("Build docker image") {
             steps {
                 script {
-                    sh 'docker build -t spring-aws-02 .'
+                    sh 'docker build -t spring-aws-02:${BUILD_NUMBER} .'
                 }
             }
         }
@@ -33,13 +33,13 @@ pipeline {
         }
         stage("Docker push") {
             steps {
-                sh 'docker tag spring-aws-02 phucpham9xx/spring-aws-02'
-                sh 'docker push phucpham9xx/spring-aws-02'
+                sh 'docker tag spring-aws-02 phucpham9xx/spring-aws-02:${BUILD_NUMBER}'
+                sh 'docker push phucpham9xx/spring-aws-02:${BUILD_NUMBER}'
             }
         }
         stage("Deloy") {
             steps {
-                sh 'docker run -itd -p 9111:8080 phucpham9xx/spring-aws-02'
+                sh 'docker run -itd -p 9111:8080 phucpham9xx/spring-aws-02:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 
